@@ -1,41 +1,28 @@
 {
-  "name": "@snout/GITHUB_REPO_NAME",
+  "name": "@snout/docusaurus-config",
   "version": "0.0.0",
-  "description": "REPLACE_ME",
-  "repository": "snout-router/GITHUB_REPO_NAME",
-  "bugs": "https://github.com/snout-router/GITHUB_REPO_NAME/issues",
+  "description": "The Docusaurus configuration used by Snout repositories",
+  "repository": "snout-router/docusaurus-config",
+  "bugs": "https://github.com/snout-router/docusaurus-config/issues",
   "homepage": "https://snout.dev",
   "author": "Erin Millard <ezzatron@gmail.com>",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "typings": "dist/index.d.ts",
-  "sideEffects": false,
+  "main": "src/main.js",
   "files": [
-    "/dist/"
+    "/src/"
   ],
-  "engines": {
-    "node": ">=14"
-  },
-  "scripts": {
-    "prepare": "rollup --config rollup.config.js"
-  },
-  "devDependencies": {
-    "@snout/eslint-config": "^1.1.2",
-    "@snout/jest-config": "^1.0.2",
-    "@snout/rollup-config": "^1.1.2",
-    "@snout/tsconfig": "^1.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "codecov": "^3.0.2",
-    "eslint": "^7.21.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "typescript": "^4.2.3"
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-beta.4",
+    "@docusaurus/plugin-client-redirects": "2.0.0-beta.4",
+    "@docusaurus/preset-classic": "2.0.0-beta.4",
+    "@docusaurus/types": "2.0.0-beta.4",
+    "@mdx-js/react": "^1.6.21",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
