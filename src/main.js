@@ -1,5 +1,6 @@
 const {readdirSync, readFileSync} = require('fs')
-const {basename, join} = require('path')
+const {basename, resolve} = require('path')
+const {linkDocblocks, transpileCodeblocks} = require('remark-typescript-tools')
 
 module.exports = {
   createConfig
@@ -15,13 +16,14 @@ function createConfig (options) {
   const {
     description,
     homepage,
+    name,
     repository,
-  } = JSON.parse(readFileSync(join(rootPath, '../package.json')))
+  } = JSON.parse(readFileSync(resolve(rootPath, '../package.json')))
 
   const githubUrl = `https://github.com/${repository}`
   const [organizationName, projectName] = repository.split('/')
 
-  const [firstApiPath] = readdirSync(join(rootPath, '../docs/api')).sort()
+  const [firstApiPath] = readdirSync(resolve(rootPath, '../docs/api')).sort()
   const firstApiEntry = basename(firstApiPath, '.mdx')
 
   return {
@@ -113,13 +115,45 @@ function createConfig (options) {
         {
           blog: false,
           theme: {
-            customCss: join(rootPath, 'src/custom.css'),
+            customCss: resolve(rootPath, 'src/custom.css'),
           },
           docs: {
             path: '../docs',
             routeBasePath: '/',
             sidebarPath: './sidebars.js',
             editUrl: `${githubUrl}/edit/main/website/`,
+            remarkPlugins: [
+              [
+                linkDocblocks,
+                {
+                  extractorSettings: {
+                    tsconfig: resolve(__dirname, 'tsconfig.json'),
+                    basedir: resolve(rootPath, '..'),
+                    rootFiles: [
+                      'index.ts',
+                    ],
+                  },
+                },
+              ],
+              [
+                transpileCodeblocks,
+                {
+                  compilerSettings: {
+                    tsconfig: resolve(__dirname, 'tsconfig.json'),
+                    externalResolutions: {
+                      [name]: {
+                        resolvedPath: resolve(rootPath, '../src'),
+                        packageId: {
+                          name,
+                          subModuleName: 'index.ts',
+                          version: '0.0.0',
+                        },
+                      },
+                    },
+                  },
+                },
+              ],
+            ],
           },
         },
       ],
