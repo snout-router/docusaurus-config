@@ -33,7 +33,6 @@ function createConfig (options) {
     baseUrl: `/${projectName}/`,
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'img/favicon.ico',
     organizationName,
     projectName,
     i18n: {
