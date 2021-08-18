@@ -52,6 +52,10 @@ function createConfig (options) {
       },
       navbar: {
         title,
+        logo: {
+          alt: 'An isometric pig snout',
+          src: 'img/snout.svg',
+        },
         items: [
           {
             to: `api/${firstApiEntry}`,
