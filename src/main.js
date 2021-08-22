@@ -9,6 +9,7 @@ module.exports = {
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 function createConfig (options) {
   const {
+    primaryApiEntry,
     rootPath,
     title,
   } = options
@@ -22,9 +23,6 @@ function createConfig (options) {
 
   const githubUrl = `https://github.com/${repository}`
   const [organizationName, projectName] = repository.split('/')
-
-  const [firstApiPath] = readdirSync(resolve(rootPath, '../docs/api')).sort()
-  const firstApiEntry = basename(firstApiPath, '.mdx')
 
   return {
     title,
@@ -58,7 +56,7 @@ function createConfig (options) {
         },
         items: [
           {
-            to: `api/${firstApiEntry}`,
+            to: `api/${primaryApiEntry}`,
             label: 'API reference',
             position: 'right',
           },
@@ -82,7 +80,7 @@ function createConfig (options) {
             items: [
               {
                 label: 'API reference',
-                to: `api/${firstApiEntry}`,
+                to: `api/${primaryApiEntry}`,
               },
             ],
           },
@@ -168,7 +166,7 @@ function createConfig (options) {
           redirects: [
             {
               from: '/api',
-              to: `/api/${firstApiEntry}`,
+              to: `/api/${primaryApiEntry}`,
             },
           ],
         },
