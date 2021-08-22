@@ -1,4 +1,4 @@
-# Snout Docusaurus configuration
+# Snout Docusaurus Configuration
 
 [![Current version][badge-version-image]][badge-version-link]
 
