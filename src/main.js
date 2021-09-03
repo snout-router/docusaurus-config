@@ -9,7 +9,9 @@ module.exports = {
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 function createConfig (options) {
   const {
-    primaryApiEntry,
+    footerLinks = [],
+    navbarItems = [],
+    redirects = [],
     rootPath,
     title,
   } = options
@@ -55,11 +57,7 @@ function createConfig (options) {
           src: 'img/snout.svg',
         },
         items: [
-          {
-            to: `api/${primaryApiEntry}`,
-            label: 'API reference',
-            position: 'right',
-          },
+          ...navbarItems,
           {
             href: homepage,
             label: 'Snout',
@@ -75,15 +73,7 @@ function createConfig (options) {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'API reference',
-                to: `api/${primaryApiEntry}`,
-              },
-            ],
-          },
+          ...footerLinks,
           {
             title: 'Community',
             items: [
@@ -163,12 +153,7 @@ function createConfig (options) {
       [
         '@docusaurus/plugin-client-redirects',
         {
-          redirects: [
-            {
-              from: '/api',
-              to: `/api/${primaryApiEntry}`,
-            },
-          ],
+          redirects,
         },
       ],
     ],
