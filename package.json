@@ -15,13 +15,13 @@
     "/src/"
   ],
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.5",
-    "@docusaurus/plugin-client-redirects": "2.0.0-beta.5",
-    "@docusaurus/preset-classic": "2.0.0-beta.5",
-    "@docusaurus/types": "2.0.0-beta.5",
+    "@docusaurus/core": "2.0.0-beta.6",
+    "@docusaurus/plugin-client-redirects": "2.0.0-beta.6",
+    "@docusaurus/preset-classic": "2.0.0-beta.6",
+    "@docusaurus/types": "2.0.0-beta.6",
     "@mdx-js/react": "^1.6.21",
     "@snout/tsconfig": "^1.0.3",
-    "@types/react": "^17.0.18",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
