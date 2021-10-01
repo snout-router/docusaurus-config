@@ -23,14 +23,18 @@ function createConfig (options) {
     repository,
   } = JSON.parse(readFileSync(resolve(rootPath, '../package.json')))
 
+  const homepageUrl = new URL(homepage)
+  const baseUrl = homepageUrl.pathname.endsWith('/') ? homepageUrl.pathname : `${homepageUrl.pathname}/`
+  homepageUrl.pathname = '/'
+
   const githubUrl = `https://github.com/${repository}`
   const [organizationName, projectName] = repository.split('/')
 
   return {
     title,
     tagline: description,
-    url: homepage,
-    baseUrl: `/${projectName}/`,
+    url: homepageUrl.toString().slice(0, -1),
+    baseUrl,
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
     organizationName,
