@@ -1,6 +1,7 @@
 {
   "extends": "@snout/tsconfig",
   "compilerOptions": {
+    "alwaysStrict": false,
     "sourceMap": false
   }
 }
