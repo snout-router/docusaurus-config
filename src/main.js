@@ -1,5 +1,5 @@
-const {readdirSync, readFileSync} = require('fs')
-const {basename, resolve} = require('path')
+const {readFileSync} = require('fs')
+const {resolve} = require('path')
 const {linkDocblocks, transpileCodeblocks} = require('remark-typescript-tools')
 
 module.exports = {
@@ -171,6 +171,8 @@ function createConfig (options) {
           },
         },
       ],
+
+      require.resolve('./preset.js'),
     ],
     plugins: [
       [

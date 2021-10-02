@@ -11,6 +11,10 @@
     "access": "public"
   },
   "main": "src/main.js",
+  "exports": {
+    ".": "./src/main.js",
+    "./sandbox": "./src/sandbox.js"
+  },
   "files": [
     "/src/"
   ],
