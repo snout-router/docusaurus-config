@@ -1,8 +1,13 @@
 version: 2
 updates:
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: daily
+  reviewers:
+  - snout-router/dependabot-reviewers
 - package-ecosystem: npm
   directory: /
-  open-pull-requests-limit: 10
   schedule:
     interval: daily
   reviewers:
