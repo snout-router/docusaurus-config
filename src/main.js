@@ -50,6 +50,25 @@ function createConfig (options) {
       },
     },
     themeConfig: {
+      metadata: [
+        {property: 'og:type', content:'website'},
+        {property: 'og:site_name', content:'Snout Router'},
+
+        {property: 'og:image', content:'https://snout.dev/open-graph.png'},
+        {property: 'og:image:type', content:'image/png'},
+        {property: 'og:image:width', content:'1200'},
+        {property: 'og:image:height', content:'630'},
+        {property: 'og:image:alt', content:'A repeating pattern of isometric pig snouts'},
+
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:site', content: '@SnoutRouter'},
+
+        {name: 'twitter:image', content: 'https://snout.dev/twitter-card.png'},
+        {name: 'twitter:image:alt', content: 'A repeating pattern of isometric pig snouts'},
+
+        {name: 'theme-color', media:'(prefers-color-scheme: dark)', content:'hsl(350, 100%, 85%)'},
+        {name: 'theme-color', media:'(prefers-color-scheme: light)', content:'hsl(350, 100%, 85%)'},
+      ],
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
