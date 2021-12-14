@@ -23,9 +23,10 @@ function createConfig (options) {
     repository,
   } = JSON.parse(readFileSync(resolve(rootPath, '../package.json')))
 
-  const homepageUrl = new URL(homepage)
-  const baseUrl = homepageUrl.pathname.endsWith('/') ? homepageUrl.pathname : `${homepageUrl.pathname}/`
-  homepageUrl.pathname = '/'
+  const orgUrl = new URL(homepage)
+  const baseUrl = orgUrl.pathname.endsWith('/') ? orgUrl.pathname : `${orgUrl.pathname}/`
+  orgUrl.pathname = '/'
+  const orgUrlNoSlash = orgUrl.toString().slice(0, -1)
 
   const githubUrl = `https://github.com/${repository}`
   const [organizationName, projectName] = repository.split('/')
@@ -33,7 +34,7 @@ function createConfig (options) {
   return {
     title,
     tagline: description,
-    url: homepageUrl.toString().slice(0, -1),
+    url: orgUrlNoSlash,
     baseUrl,
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
@@ -51,23 +52,23 @@ function createConfig (options) {
     },
     themeConfig: {
       metadata: [
-        {property: 'og:type', content:'website'},
-        {property: 'og:site_name', content:'Snout Router'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:site_name', content: 'Snout Router'},
 
-        {property: 'og:image', content:'https://snout.dev/open-graph.png'},
-        {property: 'og:image:type', content:'image/png'},
-        {property: 'og:image:width', content:'1200'},
-        {property: 'og:image:height', content:'630'},
-        {property: 'og:image:alt', content:'A repeating pattern of isometric pig snouts'},
+        {property: 'og:image', content: `${orgUrl}open-graph.png`},
+        {property: 'og:image:type', content: 'image/png'},
+        {property: 'og:image:width', content: '1200'},
+        {property: 'og:image:height', content: '630'},
+        {property: 'og:image:alt', content: 'A repeating pattern of isometric pig snouts'},
 
         {name: 'twitter:card', content: 'summary_large_image'},
         {name: 'twitter:site', content: '@SnoutRouter'},
 
-        {name: 'twitter:image', content: 'https://snout.dev/twitter-card.png'},
+        {name: 'twitter:image', content: `${orgUrl}twitter-card.png`},
         {name: 'twitter:image:alt', content: 'A repeating pattern of isometric pig snouts'},
 
-        {name: 'theme-color', media:'(prefers-color-scheme: dark)', content:'hsl(350, 100%, 85%)'},
-        {name: 'theme-color', media:'(prefers-color-scheme: light)', content:'hsl(350, 100%, 85%)'},
+        {name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'hsl(350, 100%, 85%)'},
+        {name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'hsl(350, 100%, 85%)'},
       ],
       colorMode: {
         defaultMode: 'dark',
@@ -77,12 +78,12 @@ function createConfig (options) {
         title,
         logo: {
           alt: 'An isometric pig snout',
-          src: 'https://snout.dev/snout.svg',
+          src: `${orgUrl}/snout.svg`,
         },
         items: [
           ...navbarItems,
           {
-            href: homepage,
+            href: orgUrlNoSlash,
             label: 'Snout',
             position: 'right',
           },
