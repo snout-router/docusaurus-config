@@ -77,7 +77,7 @@ function createConfig (options) {
         title,
         logo: {
           alt: 'An isometric pig snout',
-          src: 'img/snout.svg',
+          src: 'https://snout.dev/snout.svg',
         },
         items: [
           ...navbarItems,
