@@ -22,7 +22,7 @@
     "@docusaurus/core": "2.0.0-beta.15",
     "@docusaurus/plugin-client-redirects": "2.0.0-beta.15",
     "@docusaurus/preset-classic": "2.0.0-beta.15",
-    "@docusaurus/types": "2.0.0-beta.15",
+    "@docusaurus/types": "2.0.0-beta.16",
     "@mdx-js/react": "^1.6.21",
     "@snout/tsconfig": "^2.0.0",
     "@types/react": "^17.0.19",
