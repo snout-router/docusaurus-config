@@ -19,7 +19,7 @@
     "/src/"
   ],
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.16",
+    "@docusaurus/core": "2.0.0-beta.17",
     "@docusaurus/plugin-client-redirects": "2.0.0-beta.16",
     "@docusaurus/preset-classic": "2.0.0-beta.16",
     "@docusaurus/types": "2.0.0-beta.16",
