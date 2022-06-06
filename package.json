@@ -19,10 +19,10 @@
     "/src/"
   ],
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.18",
-    "@docusaurus/plugin-client-redirects": "2.0.0-beta.18",
-    "@docusaurus/preset-classic": "2.0.0-beta.18",
-    "@docusaurus/types": "2.0.0-beta.18",
+    "@docusaurus/core": "2.0.0-beta.21",
+    "@docusaurus/plugin-client-redirects": "2.0.0-beta.21",
+    "@docusaurus/preset-classic": "2.0.0-beta.21",
+    "@docusaurus/types": "2.0.0-beta.21",
     "@mdx-js/react": "^2.0.0",
     "@snout/tsconfig": "^2.0.0",
     "@types/react": "^17.0.19",
