@@ -10,6 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "types": "src/main.d.ts",
   "main": "src/main.js",
   "exports": {
     ".": "./src/main.js",
