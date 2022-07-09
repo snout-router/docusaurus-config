@@ -11,4 +11,6 @@ declare module "@theme/Sandbox" {
   export default function Sandbox(props: Props): JSX.Element;
 }
 
-export function buildUrl(id: string): string;
+declare module "@snout/docusaurus-config/sandbox" {
+  export function buildUrl(id: string): string;
+}
