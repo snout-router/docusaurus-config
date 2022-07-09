@@ -9,10 +9,10 @@
 
 ```js
 // docusaurus.config.js
-const {createConfig} = require('../docusaurus.config.js')
+const { createConfig } = require("../docusaurus.config.js");
 
 module.exports = createConfig({
   rootPath: __dirname,
-  title: 'Snout ...',
-})
+  title: "Snout ...",
+});
 ```

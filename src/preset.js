@@ -1,7 +1,5 @@
-module.exports = function preset () {
+module.exports = function preset() {
   return {
-    themes: [
-      require.resolve('./theme.js'),
-    ],
-  }
-}
+    themes: [require.resolve("./theme.js")],
+  };
+};

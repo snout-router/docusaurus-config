@@ -1,17 +1,15 @@
-const {join} = require('path')
+const { join } = require("path");
 
 module.exports = function theme() {
   return {
-    name: 'snout',
+    name: "snout",
 
-    getThemePath () {
-      return join(__dirname, 'theme')
+    getThemePath() {
+      return join(__dirname, "theme");
     },
 
-    getClientModules () {
-      return [
-        join(__dirname, 'theme/main.css')
-      ]
+    getClientModules() {
+      return [join(__dirname, "theme/main.css")];
     },
-  }
-}
+  };
+};

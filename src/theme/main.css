@@ -6,15 +6,39 @@
   --brand-color-hsl: var(--brand-color-hs), var(--brand-color-l);
   --brand-color: hsl(var(--brand-color-hsl));
 
-  --brand-color-darkish: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 0.95));
-  --brand-color-dark: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 0.85));
-  --brand-color-darker: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 0.7));
-  --brand-color-darkest: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 0.55));
+  --brand-color-darkish: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 0.95)
+  );
+  --brand-color-dark: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 0.85)
+  );
+  --brand-color-darker: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 0.7)
+  );
+  --brand-color-darkest: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 0.55)
+  );
 
-  --brand-color-lightish: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 1.05));
-  --brand-color-light: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 1.15));
-  --brand-color-lighter: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 1.3));
-  --brand-color-lightest: hsl(var(--brand-color-hs), calc(var(--brand-color-l) * 1.45));
+  --brand-color-lightish: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 1.05)
+  );
+  --brand-color-light: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 1.15)
+  );
+  --brand-color-lighter: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 1.3)
+  );
+  --brand-color-lightest: hsl(
+    var(--brand-color-hs),
+    calc(var(--brand-color-l) * 1.45)
+  );
 
   --ifm-color-primary: var(--brand-color);
 
@@ -33,7 +57,7 @@
   --ifm-code-font-size: 95%;
 }
 
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --ifm-color-primary: var(--brand-color-darker);
 }
 
@@ -47,8 +71,12 @@
 }
 
 .hero.hero--primary {
-  position:  relative;
-  background: linear-gradient(90deg, var(--brand-color), var(--brand-color-lightish));
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--brand-color),
+    var(--brand-color-lightish)
+  );
 }
 .hero.hero--primary:before {
   content: "";
@@ -58,12 +86,17 @@
   bottom: 0;
   right: 0;
   mask-image: linear-gradient(to bottom, transparent, black);
-  background: linear-gradient(90deg, var(--brand-color-darkish), var(--brand-color));
+  background: linear-gradient(
+    90deg,
+    var(--brand-color-darkish),
+    var(--brand-color)
+  );
 }
 .hero.hero--primary .container {
   z-index: 1;
 }
 
-.hero.hero--primary .button.button--secondary.button--outline:not(.button--active):not(:hover) {
+.hero.hero--primary
+  .button.button--secondary.button--outline:not(.button--active):not(:hover) {
   color: var(--ifm-hero-text-color);
 }
