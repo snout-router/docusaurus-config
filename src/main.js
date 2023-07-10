@@ -20,7 +20,7 @@ function createConfig(options) {
   } = options;
 
   const { description, homepage, name, repository } = JSON.parse(
-    readFileSync(resolve(rootPath, "../package.json"))
+    readFileSync(resolve(rootPath, "../package.json")),
   );
 
   const orgUrl = new URL(homepage);
