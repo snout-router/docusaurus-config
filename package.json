@@ -33,7 +33,7 @@
     "remark-typescript-tools": "^1.0.10"
   },
   "devDependencies": {
-    "prettier": "^2.7.1",
+    "prettier": "^3.0.0",
     "typescript": "^5.0.2"
   }
 }
