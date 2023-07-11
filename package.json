@@ -13,8 +13,14 @@
   "types": "src/main.d.ts",
   "main": "src/main.js",
   "exports": {
-    ".": "./src/main.js",
-    "./sandbox": "./src/sandbox.js"
+    ".": {
+      "types": "./src/main.d.ts",
+      "default": "./src/main.js"
+    },
+    "./sandbox": {
+      "types": "./src/sandbox.d.ts",
+      "default": "./src/sandbox.js"
+    }
   },
   "files": [
     "/src/"
