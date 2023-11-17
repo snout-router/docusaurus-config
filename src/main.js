@@ -1,9 +1,5 @@
 const { readFileSync } = require("fs");
 const { resolve } = require("path");
-const {
-  linkDocblocks,
-  transpileCodeblocks,
-} = require("remark-typescript-tools");
 
 module.exports = {
   createConfig,
@@ -153,36 +149,6 @@ function createConfig(options) {
             routeBasePath: "/",
             sidebarPath: "./sidebars.js",
             editUrl: `${githubUrl}/edit/main/website/`,
-            remarkPlugins: [
-              [
-                linkDocblocks,
-                {
-                  extractorSettings: {
-                    tsconfig: resolve(__dirname, "tsconfig.json"),
-                    basedir: resolve(rootPath, ".."),
-                    rootFiles: ["index.ts"],
-                  },
-                },
-              ],
-              [
-                transpileCodeblocks,
-                {
-                  compilerSettings: {
-                    tsconfig: resolve(__dirname, "tsconfig.json"),
-                    externalResolutions: {
-                      [name]: {
-                        resolvedPath: resolve(rootPath, "../src"),
-                        packageId: {
-                          name,
-                          subModuleName: "index.ts",
-                          version: "0.0.0",
-                        },
-                      },
-                    },
-                  },
-                },
-              ],
-            ],
           },
         },
       ],
