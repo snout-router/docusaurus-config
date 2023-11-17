@@ -147,7 +147,7 @@ function createConfig(options) {
           docs: {
             path: "../docs",
             routeBasePath: "/",
-            sidebarPath: "./sidebars.js",
+            sidebarPath: "./sidebars.ts",
             editUrl: `${githubUrl}/edit/main/website/`,
           },
         },
