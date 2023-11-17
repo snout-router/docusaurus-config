@@ -15,7 +15,7 @@ function createConfig(options) {
     title,
   } = options;
 
-  const { description, homepage, name, repository } = JSON.parse(
+  const { description, homepage, repository } = JSON.parse(
     readFileSync(resolve(rootPath, "../package.json")),
   );
 
