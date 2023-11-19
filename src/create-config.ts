@@ -1,22 +1,29 @@
-const { readFileSync } = require("fs");
-const { resolve } = require("path");
+import { Config } from "@docusaurus/types";
+import { ThemeConfig } from "@docusaurus/preset-classic";
+import { Options } from "@docusaurus/plugin-client-redirects";
+import { readFileSync } from "fs";
+import { resolve } from "path";
 
-module.exports = {
-  createConfig,
-};
+type FooterLinks = NonNullable<NonNullable<ThemeConfig["footer"]>["links"]>;
+type NavbarItems = NonNullable<NonNullable<ThemeConfig["navbar"]>["items"]>;
+type Redirects = Options["redirects"];
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-function createConfig(options) {
-  const {
-    footerLinks = [],
-    navbarItems = [],
-    redirects = [],
-    rootPath,
-    title,
-  } = options;
+export function createConfig({
+  footerLinks = [],
+  navbarItems = [],
+  redirects = [],
+  rootPath,
+  title,
+}: {
+  rootPath: string;
+  title: string;
 
+  footerLinks?: FooterLinks;
+  navbarItems?: NavbarItems;
+  redirects?: Redirects;
+}): Config {
   const { description, homepage, repository } = JSON.parse(
-    readFileSync(resolve(rootPath, "../package.json")),
+    readFileSync(resolve(rootPath, "../package.json")).toString(),
   );
 
   const orgUrl = new URL(homepage);

@@ -1,9 +1,11 @@
 import Head from "@docusaurus/Head";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import ThemeLayoutHead from "@theme-init/LayoutHead";
-import React from "react";
+import React, { ComponentProps } from "react";
 
-export default function LayoutHead(props) {
+type Props = ComponentProps<typeof ThemeLayoutHead>;
+
+export default function LayoutHead(props: Props) {
   const {
     siteConfig: { url },
   } = useDocusaurusContext();
