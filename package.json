@@ -10,21 +10,26 @@
   "publishConfig": {
     "access": "public"
   },
-  "types": "src/main.d.ts",
-  "main": "src/main.js",
+  "type": "module",
+  "main": "artifacts/dist/index.js",
+  "types": "artifacts/dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/main.d.ts",
-      "default": "./src/main.js"
-    },
-    "./sandbox": {
-      "types": "./src/sandbox.d.ts",
-      "default": "./src/sandbox.js"
+      "types": "./artifacts/dist/index.d.ts",
+      "import": "./artifacts/dist/index.js",
+      "default": "./artifacts/dist/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
-    "/src/"
+    "/artifacts/dist/"
   ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "prepublishOnly": "make artifacts/dist"
+  },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
     "@docusaurus/module-type-aliases": "^3.0.0",
