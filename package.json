@@ -10,33 +10,38 @@
   "publishConfig": {
     "access": "public"
   },
-  "types": "src/main.d.ts",
-  "main": "src/main.js",
+  "type": "module",
+  "main": "artifacts/dist/index.js",
+  "types": "artifacts/dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/main.d.ts",
-      "default": "./src/main.js"
-    },
-    "./sandbox": {
-      "types": "./src/sandbox.d.ts",
-      "default": "./src/sandbox.js"
+      "types": "./artifacts/dist/index.d.ts",
+      "import": "./artifacts/dist/index.js",
+      "default": "./artifacts/dist/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
-    "/src/"
+    "/artifacts/dist/"
   ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "prepublishOnly": "make artifacts/dist"
+  },
   "dependencies": {
-    "@docusaurus/core": "^2.1.0",
-    "@docusaurus/module-type-aliases": "^2.1.0",
-    "@docusaurus/plugin-client-redirects": "^2.1.0",
-    "@docusaurus/preset-classic": "^2.1.0",
-    "@docusaurus/types": "^2.1.0",
+    "@docusaurus/core": "^3.3.2",
+    "@docusaurus/module-type-aliases": "^3.3.2",
+    "@docusaurus/plugin-client-redirects": "^3.3.2",
+    "@docusaurus/preset-classic": "^3.3.2",
+    "@docusaurus/types": "^3.3.2",
     "@snout/tsconfig": "^3.0.0",
-    "@types/react": "^17.0.52",
-    "@types/react-dom": "^17.0.18",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remark-typescript-tools": "^1.0.10"
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remark-typescript-tools": "^1.1.0"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
