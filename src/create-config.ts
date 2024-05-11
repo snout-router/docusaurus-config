@@ -3,6 +3,7 @@ import { ThemeConfig } from "@docusaurus/preset-classic";
 import { Options } from "@docusaurus/plugin-client-redirects";
 import { readFileSync } from "fs";
 import { resolve } from "path";
+import { transpileCodeblocks } from "remark-typescript-tools";
 
 type FooterLinks = NonNullable<NonNullable<ThemeConfig["footer"]>["links"]>;
 type NavbarItems = NonNullable<NonNullable<ThemeConfig["navbar"]>["items"]>;
@@ -22,7 +23,7 @@ export function createConfig({
   navbarItems?: NavbarItems;
   redirects?: Redirects;
 }): Config {
-  const { description, homepage, repository } = JSON.parse(
+  const { description, homepage, name, repository } = JSON.parse(
     readFileSync(resolve(rootPath, "../package.json")).toString(),
   );
 
@@ -156,6 +157,26 @@ export function createConfig({
             routeBasePath: "/",
             sidebarPath: "./sidebars.ts",
             editUrl: `${githubUrl}/edit/main/website/`,
+            remarkPlugins: [
+              [
+                transpileCodeblocks,
+                {
+                  compilerSettings: {
+                    tsconfig: resolve(__dirname, "tsconfig.json"),
+                    externalResolutions: {
+                      [name]: {
+                        resolvedPath: resolve(rootPath, "../src"),
+                        packageId: {
+                          name,
+                          subModuleName: "index.ts",
+                          version: "0.0.0",
+                        },
+                      },
+                    },
+                  },
+                },
+              ],
+            ],
           },
         },
       ],
