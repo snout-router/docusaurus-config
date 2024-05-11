@@ -31,11 +31,11 @@
     "prepublishOnly": "make artifacts/dist"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.0.0",
-    "@docusaurus/module-type-aliases": "^3.0.0",
-    "@docusaurus/plugin-client-redirects": "^3.0.0",
-    "@docusaurus/preset-classic": "^3.0.0",
-    "@docusaurus/types": "^3.0.0",
+    "@docusaurus/core": "^3.3.2",
+    "@docusaurus/module-type-aliases": "^3.3.2",
+    "@docusaurus/plugin-client-redirects": "^3.3.2",
+    "@docusaurus/preset-classic": "^3.3.2",
+    "@docusaurus/types": "^3.3.2",
     "@snout/tsconfig": "^3.0.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
