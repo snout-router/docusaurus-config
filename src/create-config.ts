@@ -1,26 +1,30 @@
-const { readFileSync } = require("fs");
-const { resolve } = require("path");
-const {
-  linkDocblocks,
-  transpileCodeblocks,
-} = require("remark-typescript-tools");
+import { Config } from "@docusaurus/types";
+import { ThemeConfig } from "@docusaurus/preset-classic";
+import { Options } from "@docusaurus/plugin-client-redirects";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+import { transpileCodeblocks } from "remark-typescript-tools";
 
-module.exports = {
-  createConfig,
-};
+type FooterLinks = NonNullable<NonNullable<ThemeConfig["footer"]>["links"]>;
+type NavbarItems = NonNullable<NonNullable<ThemeConfig["navbar"]>["items"]>;
+type Redirects = Options["redirects"];
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-function createConfig(options) {
-  const {
-    footerLinks = [],
-    navbarItems = [],
-    redirects = [],
-    rootPath,
-    title,
-  } = options;
+export function createConfig({
+  footerLinks = [],
+  navbarItems = [],
+  redirects = [],
+  rootPath,
+  title,
+}: {
+  rootPath: string;
+  title: string;
 
+  footerLinks?: FooterLinks;
+  navbarItems?: NavbarItems;
+  redirects?: Redirects;
+}): Config {
   const { description, homepage, name, repository } = JSON.parse(
-    readFileSync(resolve(rootPath, "../package.json")),
+    readFileSync(resolve(rootPath, "../package.json")).toString(),
   );
 
   const orgUrl = new URL(homepage);
@@ -151,19 +155,9 @@ function createConfig(options) {
           docs: {
             path: "../docs",
             routeBasePath: "/",
-            sidebarPath: "./sidebars.js",
+            sidebarPath: "./sidebars.ts",
             editUrl: `${githubUrl}/edit/main/website/`,
             remarkPlugins: [
-              [
-                linkDocblocks,
-                {
-                  extractorSettings: {
-                    tsconfig: resolve(__dirname, "tsconfig.json"),
-                    basedir: resolve(rootPath, ".."),
-                    rootFiles: ["index.ts"],
-                  },
-                },
-              ],
               [
                 transpileCodeblocks,
                 {
