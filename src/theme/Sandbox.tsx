@@ -5,7 +5,16 @@ import styles from "./Sandbox.module.css";
 const sandboxProp =
   "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts";
 
-export default function Sandbox(props) {
+type Props = {
+  codeMirror?: boolean;
+  height: number | string;
+  hideDevTools?: boolean;
+  id: string;
+  inline?: boolean;
+  previewWindow?: "browser" | "console" | "tests";
+};
+
+export default function Sandbox(props: Props) {
   const {
     codeMirror = true,
     height,
